@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chart-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        canvas {
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <h1>Gráfico de Temperatura e Umidade</h1>
+        <canvas id="myChart" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <h1>Gráfico de Temperatura e Umidade</h1>
+        <canvas id="myChart2" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+    </div>
+
+    <script>
+        const labels = [
+            '12:00',
+            '13:00',
+            '14:00',
+            '15:00',
+            '16:00',
+            '17:00',
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Temperatura',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [30, 29, 28, 25, 22, 23],
+            },
+            {
+                label: 'Umidade',
+                backgroundColor: 'rgb(0, 0, 255)',
+                borderColor: 'rgb(0, 0, 255)',
+                data: [80, 82, 80, 85, 80, 83],
+            }]
+        };
+
+        const labels2 = [
+            'Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho',
+        ];
+
+        const data2 = {
+            labels: labels2,
+            datasets: [{
+                label: 'Temperatura Média',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [22, 24, 27, 23, 20, 18],
+            },
+            {
+                label: 'Umidade Média',
+                backgroundColor: 'rgb(0, 0, 255)',
+                borderColor: 'rgb(0, 0, 255)',
+                data: [90, 89, 93, 87, 88, 82],
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+
+        const config2 = {
+            type: 'bar',
+            data: data2,
+            options: {}
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
+        const myChart2 = new Chart(
+            document.getElementById('myChart2'),
+            config2
+        );
+    </script>
+</body>
+</html>
